@@ -22,6 +22,7 @@ public class Main {
 //        System.out.print("Objętośc kuli: ");
 //        System.out.println(4/3 * Math.PI * Math.pow(radius, 3));
 
-        GetAge.getAge();
+//        GetAge.getAge();
+            GetDays.getDays();
     }
 }

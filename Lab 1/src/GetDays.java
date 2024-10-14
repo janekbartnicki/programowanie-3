@@ -4,10 +4,9 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-public class GetAge {
-    public static void getAge() throws IOException {
+public class GetDays {
+    public static void getDays() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Podaj datę (dd-MM-RRRR): ");
@@ -15,11 +14,14 @@ public class GetAge {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        LocalDate birthDate = LocalDate.parse(s, formatter);
-        LocalDate now = LocalDate.now();
-        Period period = Period.between(birthDate, now);
+        LocalDate date = LocalDate.parse(s, formatter);
 
-        System.out.println(period.getYears());
+        if(LocalDate.now().toEpochDay() - date.toEpochDay() >= 0) {
+            System.out.println(LocalDate.now().toEpochDay() - date.toEpochDay());
+        } else {
+            System.out.println("Data w przyszłości!");
+        }
+
 
     }
 }
